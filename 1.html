@@ -17,13 +17,20 @@
     </style>
 </head>
 <body>
-    <video src="./jj.mp4" autoplay id="myVideo"></video>
-    <div id="playButton" style="display: flex;justify-content: center;">
-        <img src="./egg.png" style="width: 150px;" onclick="document.getElementById('myVideo').play()"/>
+    <video src="./jj.mp4" id="myVideo" style="display:none"></video>
+    <div id="playButton" style="display: flex;justify-content: center;position: fixed;bottom:0;left:50%;transform: translateX(-50%);">
+        <img src="./egg.png" style="width: 150px;" onclick=""/>
     </button>
     <div style="position:fixed; right: 0; bottom: 0; width: 40px;height: 40px;" onclick="window.location.href='./index.html'"></div>
     <script>
-
+        window.onload = function(){
+            document.querySelector('#playButton').addEventListener('click',function(){
+                document.querySelector('#myVideo').style.display = 'block'
+                setTimeout(()=> {
+                    document.querySelector('#myVideo').play()
+                },500)
+            })
+        }
     </script>
 </body>
 </html>
