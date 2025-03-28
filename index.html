@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+  </head>
+  <body>
+    <a href="tel:13220238689">
+      <span>13220238689</span>
+    </a>
+    <button onclick="jump()">跳转</button>
+    <script>
+      var config = {
+        appId: 'wx64723fd1452def8a',
+  timestamp: 1743150074,
+  nonceStr: '34xk0mrozbh',
+  signature: '17c62643c7f1482e4791d5b699799dc3f0dae975'
+      };
+      wx.config({
+        debug: false, // 调试模式
+        appId: config.appId,
+        timestamp: config.timestamp,
+        nonceStr: config.nonceStr,
+        signature: config.signature,
+        jsApiList: ["openLocation"], // 需要使用的接口
+      });
+      function jump() {
+        console.log("jump");
+        wx.ready(function () {
+          console.log("ready");
+          wx.openLocation({
+            latitude: 23.133584,
+            longitude: 113.391016,
+            name: "广州市天河区中国工商银行软件开发中心",
+          });
+        });
+        wx.error(function (error) {
+          console.error("SDK配置失败：", error);
+        });
+      }
+    </script>
+  </body>
+</html>
 
